@@ -38,11 +38,19 @@ export default async function RootLayout({
   // Get all translations (messages)
   const messages = await getMessages()
 
+  // Fetch translations for the navbar specifically
+  const navbarTranslations = messages.navbar as {
+    experience: string
+    skills: string
+    proyects: string
+    contact: string
+  }
+
   return (
     <html lang={locale}>
       <body className={`${BarlowText.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
+          <Navbar translations={navbarTranslations} />
           <main className="flex-1">{children}</main>
         </NextIntlClientProvider>
       </body>
