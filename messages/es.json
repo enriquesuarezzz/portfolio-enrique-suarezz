@@ -1,5 +1,12 @@
 {
-  "HomePage": {
-    "title": "Hola mundo!"
+  "home_page": {
+    "meta_title": "Home - DcWine",
+    "meta_description": "Welcome to DcWine, your trusted platform to discover and purchase the finest wines, directly from the best wineries."
+  },
+  "navbar": {
+    "experience": "experience",
+    "skills": "skills",
+    "proyects": "proyects",
+    "contact": "contact"
   }
 }

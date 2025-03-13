@@ -1,12 +1,15 @@
 import { getTranslations } from 'next-intl/server'
-import { Link } from '@/i18n/routing'
+
+export async function generateMetadata() {
+  const t = await getTranslations('home_page')
+
+  return {
+    title: t('meta_title'),
+    description: t('meta_description'),
+  }
+}
 
 export default async function HomePage() {
-  const t = await getTranslations('HomePage')
-  return (
-    <div>
-      <h1>{t('title')}</h1>
-      <Link href="/">{t('title')}</Link>
-    </div>
-  )
+  const t = await getTranslations('navbar')
+  return <main className="flex min-h-screen flex-col"></main>
 }
