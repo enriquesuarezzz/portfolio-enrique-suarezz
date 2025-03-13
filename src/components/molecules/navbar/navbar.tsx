@@ -1,25 +1,40 @@
+'use client'
 import Link from 'next/link'
-import LocaleSwitcher from '../locale_switcher/locale_switcher'
-import { getTranslations } from 'next-intl/server'
 import { OnestText } from '@/components/atoms/onest_text'
+import { useRouter } from 'next/navigation'
+import English from '@/components/atoms/svg/english'
+import Spanish from '@/components/atoms/svg/spanish'
 
-export default async function HomePage() {
-  const t = await getTranslations('navbar')
+interface NavbarItem {
+  translations: {
+    experience: string
+    skills: string
+    proyects: string
+    contact: string
+  }
+}
+
+export default function Navbar({ translations }: NavbarItem) {
+  const router = useRouter()
+  const changeLanguage = (locale: string) => {
+    router.push(`/${locale}`)
+  }
+
   const data = [
     {
-      title: t('experience'),
+      title: translations.experience,
       href: '/#experience',
     },
     {
-      title: t('skills'),
+      title: translations.skills,
       href: '/#skills',
     },
     {
-      title: t('proyects'),
-      href: '/#proyects',
+      title: translations.proyects,
+      href: '/#projects',
     },
     {
-      title: t('contact'),
+      title: translations.contact,
       href: 'mailto:enriquesuarezmartin@gmail.com',
     },
   ]
@@ -30,18 +45,30 @@ export default async function HomePage() {
       {data.map((item) => (
         <Link href={item.href} key={item.title}>
           <OnestText
-            tag="h1"
-            fontSize="16px"
+            fontSize="20px"
             style="bold"
-            className="hover:text-orange relative mx-auto block w-fit text-black text-white after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-[#ccb32b] after:transition after:duration-300 after:content-[''] after:hover:scale-x-100"
+            className="hover:text-orange after:bg-orange relative mx-auto block w-fit text-white after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:transition after:duration-300 after:content-[''] after:hover:scale-x-100"
           >
             {item.title}
           </OnestText>
         </Link>
       ))}
       {/* Language selection */}
-      <div className="flex gap-2 md:ml-5 md:gap-3">
-        <LocaleSwitcher />
+      <div className="flex items-center space-x-4">
+        <button
+          aria-label="Change language to Spanish"
+          onClick={() => changeLanguage('es')}
+          title="Switch to Spanish"
+        >
+          <Spanish className="h-6 w-6 hover:scale-110" />
+        </button>
+        <button
+          aria-label="Change language to English"
+          onClick={() => changeLanguage('en')}
+          title="Switch to English"
+        >
+          <English className="h-6 w-6 hover:scale-110" />
+        </button>
       </div>
     </nav>
   )

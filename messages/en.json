@@ -1,12 +1,17 @@
 {
   "home_page": {
-    "meta_title": "Home - DcWine",
-    "meta_description": "Welcome to DcWine, your trusted platform to discover and purchase the finest wines, directly from the best wineries."
+    "meta_title": "Home - Portfolio Enrique Suarez",
+    "meta_description": ""
   },
   "navbar": {
-    "experience": "experience",
-    "skills": "skills",
-    "proyects": "proyects",
-    "contact": "contact"
+    "experience": "Experience",
+    "skills": "Skills",
+    "proyects": "Proyects",
+    "contact": "Contact"
+  },
+  "header": {
+    "title": "Hey, Im Enrique Suarez",
+    "description": "Bienvenido a mi pequeño rinconcito, soy técnico superior de Desarrollo De Aplicaciones web , y me encantaría unirme a tu equipo de trabajo y aportar mi granito de arena :)",
+    "download": "Download CV"
   }
 }
