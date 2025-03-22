@@ -18,7 +18,7 @@ export async function Header() {
           </OnestText>
           {/* image */}
           <Image
-            src={`${process.env.NEXT_PUBLIC_IMAGES_PATH + '/images/1.jpg'}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGES_PATH + '/images/header_image.avif'}`}
             alt="Enrique Suarez Image"
             width={100}
             height={100}
@@ -30,6 +30,7 @@ export async function Header() {
         <OnestText fontSize="20px" style="bold" className="text-white">
           {t('description')}
         </OnestText>
+
         {/* buttons */}
         <div className="grid w-full grid-cols-2 pt-4 md:flex md:gap-4 lg:pt-10">
           {/* linkedin button */}
@@ -52,7 +53,7 @@ export async function Header() {
           </Button>
           {/* download cv button */}
           <Button
-            text={t('download')}
+            text={t('cv_button')}
             href="/pdf/enrique_suarez_english.pdf"
             rel="noopener noreferrer"
             className="mt-4 text-nowrap md:ml-0 md:mt-0"
